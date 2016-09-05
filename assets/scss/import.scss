@@ -1,4 +1,6 @@
 /* DEFINE MIXINS */
+@import 'dependencies.scss';
+@import 'variables.scss';
 @import 'mixins';
 
 /* DEFINE FUNCTIONS */
@@ -6,3 +8,20 @@
 
 /* DEFINE COLORS */
 @import 'colors.define';
+@import 'colors.elements';
+
+/* DEFINE GRID */
+@import 'skeleton.grid';
+
+/* DEFINE BASE */
+@import 'base';
+
+/* DEFINE FONTS */
+@import 'fonts';
+
+/* DEFINE ANIMATIONS */
+@import 'animations';
+
+/* DEFINE COMPONENTS */
+@import 'components/navbar';
+@import 'components/hero';

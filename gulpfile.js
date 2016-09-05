@@ -15,6 +15,7 @@ var gulp = require('gulp'),
 var config = {
     root: '.',
     assets: 'assets',
+    bower: 'bower_components',
     pages: 'pages'
 };
 var banner = ['/**',
@@ -54,7 +55,8 @@ gulp.task('inject-minified', ['sass-compile'], function(){
         inject(
             gulp.src([
                 config.assets + '/css/minified/*.*',
-                config.assets + '/css/plugins/**/*.css'
+                config.assets + '/css/plugins/**/*.css',
+                config.bower + '/jquery/dist/jquery.min.js'
                 ], {
                     read: false
                 }
@@ -73,6 +75,6 @@ gulp.task('inject-minified', ['sass-compile'], function(){
 gulp.task('watch', function(){
     gulp.watch([
         config.assets + '/scss/**/*.scss',
-    ], ['sass-compile', 'inject-minified']);
+    ], ['sass-compile'/*, 'inject-minified'*/]);
 });
 

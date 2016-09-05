@@ -1,0 +1,56 @@
+@import 'https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900';
+@import 'https://fonts.googleapis.com/css?family=Questrial';
+
+$headers-group: h1 h2 h3 h4 h5 h6;
+
+body{
+	font-family: 'Raleway', sans-serif !important;
+}
+
+@each $header in $headers-group{
+	$i: index($headers-group, $header);
+	#{$header}{
+		font-weight: 500;
+		font-family: "Questrial";
+		font-size: ($base-font-size)+(5-$i)*8; 
+	}
+}
+
+.text-center{
+	text-align: center;
+}
+.text-left{
+	text-align: left;
+}
+.text-right{
+	text-align: right;
+}
+
+
+/* ICON SIZES */
+.fa-smaller{
+	font-size: $base-font-size/4 !important;
+}
+.fa-small{
+	font-size: $base-font-size/2 !important;
+}
+.fa-big{
+	font-size: $base-font-size*2 !important;
+}
+.fa-bigger{
+	font-size: $base-font-size*4 !important;
+}
+
+/* FONT SIZES */
+.text-smaller{
+	font-size: $base-font-size/2 !important;
+}
+.text-small{
+	font-size: $base-font-size/1.5 !important;
+}
+.text-big{
+	font-size: $base-font-size*1.5 !important;
+}
+.text-bigger{
+	font-size: $base-font-size*2 !important;
+}

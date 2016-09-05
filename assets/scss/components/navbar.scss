@@ -1,0 +1,41 @@
+nav{
+	ul{
+		padding: 40px 30px;
+
+		li{
+			display: inline;
+			margin: 0px 30px;
+
+			a{
+				cursor: pointer;
+				padding: 10px 0px;
+				text-decoration: none;
+				color: $dark-grey;
+				transition: all 0.5s;
+
+				&:hover{
+					color: $black;
+				}
+
+			}
+
+			&.logo{
+				margin-right:0px;
+				padding-right: 30px;
+				border-right: 1px solid $dark-grey;
+
+				a{
+					color: $black !important;
+					font-weight: 700;
+				}
+			}
+
+			&.active{
+				a{
+					color: $black;
+					font-weight: 500;
+				}
+			}
+		}
+	}
+}
