@@ -1,0 +1,22 @@
+{
+  "name": "Nightknight",
+  "version": "0.0.0",
+  "authors": [
+    "Koen Everaert <koen@beformed.be>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "application/assets/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4"
+  },
+  "resolutions": {
+    "angular": "~1.4.8"
+  }
+}
