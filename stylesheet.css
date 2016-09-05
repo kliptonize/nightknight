@@ -1,0 +1,19 @@
+/*
+ * Not generated yet
+*/
+@import "http://fonts.googleapis.com/css?family=Source+Sans+Pro:300";
+
+body{
+	background-color: #3E5196;
+	font-family:"Source Sans Pro",Helvetica,sans-serif;
+}
+.wrapper{
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	width: 200px;
+}
+h4{
+	color: #D7DDE2;
+	font-size: 20pt;
+}
