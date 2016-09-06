@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "v": {
     "app": "0.1.0",
-    "build": "0.1.1-compile.263"
+    "build": "0.1.1-compile.322"
   },
   "description": "Nightknight - Find the best hero lookout spot",
   "main": "index.js",

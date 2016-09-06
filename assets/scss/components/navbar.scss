@@ -12,6 +12,8 @@ nav{
 				text-decoration: none;
 				color: $dark-grey;
 				transition: all 0.5s;
+				text-transform: uppercase;
+				font-size: $base-font-size;
 
 				&:hover{
 					color: $black;
@@ -27,6 +29,7 @@ nav{
 				a{
 					color: $black !important;
 					font-weight: 700;
+					font-size: $base-font-size + 4;
 				}
 			}
 
