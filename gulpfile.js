@@ -56,7 +56,8 @@ gulp.task('inject-minified', ['sass-compile'], function(){
             gulp.src([
                 config.assets + '/css/minified/*.*',
                 config.assets + '/css/plugins/**/*.css',
-                config.bower + '/jquery/dist/jquery.min.js'
+                config.bower + '/jquery/dist/jquery.min.js',
+                config.assets + '/js/*.js'
                 ], {
                     read: false
                 }

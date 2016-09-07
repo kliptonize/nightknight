@@ -2,108 +2,52 @@
 	<head>
 		<title>Nightknight</title>
 		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0">
+
+		<link rel="shortcut icon" href="../assets/images/logo-favicon-light.png">
 		<!-- inject:css -->
 		<link rel="stylesheet" href="../assets/css/minified/nightknight_stylesheet.css">
 		<link rel="stylesheet" href="../assets/css/plugins/font-awesome.min.css">
 		<!-- endinject -->
 	</head>
 	<body>
-		<nav class="u-full-width bg-light-grey">
-			<ul>
-				<li class="logo"><a href="#superhero"><i class="fa fa-child"></i> Nightknight</a></li>
-				<li><a href="#yourethehero">You're the hero!</a></li>
-				<li><a href="#spotfinder">Show me the spots</a></li>
-				<li><a href="#besocial">Just be social</a></li>
-			</ul>
-		</nav>
-		<section class="hero" id="superhero">
-			<div class="container">
-				<div class="row full-height">
-					<div class="twelve columns va-container">
-						<div class="va-middle">
-							<p>
-								So.
-							</p>
-							<p>
-								You want to be a <strong>hero</strong>. But why?
-							</p>
-							<p>
-								Vestibulum id ligula porta felis euismod semper. Nulla vitae elit libero, a pharetra augue. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut <strong>fermentum</strong> massa justo sit amet risus. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Maecenas faucibus mollis interdum. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
-							</p>
-						</div>
-					</div>
-					<div class="twelve columns text-center stick-to-bottom">
-						<a href="#yourethehero"><i class="fa fa-angle-down text-dark-grey fa-bigger"></i></a>
-					</div>
+		<div class="container u-full-width u-full-height padding-40">
+			<div class="row float-right padding-r-10 margin-t-m-20 hide-mobile">
+				<div class="one columns">
+					<ul class="text-left">
+						<li>Session:</li>
+						<li>UserID:</li>
+						<li>Duration:</li>
+					</ul>
+				</div>
+				<div class="two columns">
+					<ul class="text-right">
+						<li id="session">#</li>
+						<li id="userid">#</li>
+						<li id="duration">#</li>
+					</ul>
 				</div>
 			</div>
-		</section>
-		<section class="u-full-width bg-white padding-80 shadow" id="yourethehero">
-			<div class="container">
-				<div class="row">
-					<div class="twelve columns text-center">
-						<h2>You're the hero!</h2>
-					</div>
-				</div>
-				<div class="row">
-					<div class="six columns padding-60">
-						<img src="../assets/images/big-hero-6-light.png" />
-					</div>
-					<div class="six columns padding-60">
-						<p>
-							Curabitur blandit tempus porttitor. Etiam porta sem <strong>malesuada</strong> magna mollis euismod. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec ullamcorper nulla non metus auctor fringilla. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur <strong>ridiculus</strong> mus. Nullam id dolor id nibh ultricies vehicula ut id elit. Aenean lacinia bibendum nulla sed consectetur.
-						</p>
-					</div>
+			<div class="row v-align-center">
+				<div class="twelve columns u-full-width">
+					<div class="input-group">
+						<img src="../assets/images/logo-light.png" />
+						<label for="searchForPlace">Find your nearest lookout spot<span class="hide-mobile"> online, and become the hero your city deserves:</span></label>
+						<input type="text" placeholder="Find your city and press enter" id="searchForPlace" />
+					</label>
 				</div>
 			</div>
-		</section>
-		<section class="padding-t-80 bg-dark-blue" id="spotfinder">
-			<div class="container">
-				<div class="row">
-					<div class="twelve columns text-center text-white">
-						<h2>Looking for a spot, are you?</h2>
-						<small>Sure thing brother...</small>
-					</div>
+		</div>
+		<footer>
+			<div class="row float-right padding-r-10 padding-b-10 v-align-bottom text-right">
+				<div class="three columns">
+					Made by <a href="http://www.koen.coff.ie">a Code Hunter</a>.
 				</div>
 			</div>
-		</section>
-		<section class="padding-80 u-full-width bg-dark-blue">
-			<div class="container">
-				<div class="row">
-					<div class="twelve columns text-center">
-						<img src="../assets/images/belgium-map-shadowed.png">
-					</div>
-				</div>
-			</div>
-		</section>
-		<section class="padding-80" id="besocial">
-			<div class="container">
-				<div class="six columns padding-80">
-					<p>
-						<i class="fa fa-heart text-dark-blue"></i> Made by <a href="http://koen.coff.ie" target="_blank">me</a>
-					</p>
-					<p class="text-small">
-						..and with a lot of whitespace
-					</p>
-				</div>
-				<div class="six columns text-right padding-80">
-					<p>
-						NightKnight <i class="fa fa-child text-dark-blue"></i>
-					</p>
-					<p class="text-small">
-						You deserve your superhero spot!
-					</p>
-				</div>
-			</div>
-		</section>
+		</footer>
 	</body>
 	<!-- inject:js -->
 	<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="../assets/js/functions.js"></script>
 	<!-- endinject -->
-
-	<script type="text/javascript">
-	$(document).ready(function(){
-		$(".full-height").css('height', $(window).css("height")-(98));
-	});
-	</script>
 </html>
