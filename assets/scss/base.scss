@@ -1,50 +1,22 @@
 body{
-	background-color: $light-grey;
+	background-color: $white;
 	margin: 0px;
 }
 
-a{
-	color: $dark-blue;
-	transition: all 0.3s;
-	text-decoration: none;
+ul{
+	li{
+		list-style-type: none;
+		padding: 5px;
+	}
+}
 
-	&:hover{
+footer{
+	font-size: $base-font-size;
+	color: $dark-grey;
+	font-family: "Questrial";
+
+	a{
 		color: $black;
+		text-decoration: none;
 	}
-}
-
-@for $i from 1 through 20 {
-	.padding-#{$i*5} {
-		padding: #{$i*5};
-	}
-	.padding-t-#{$i*5} {
-		padding-top: #{$i*5};
-	}
-	.padding-b-#{$i*5} {
-		padding-bottom: #{$i*5};
-	}
-	.padding-l-#{$i*5} {
-		padding-left: #{$i*5};
-	}
-	.padding-r-#{$i*5} {
-		padding-right: #{$i*5};
-	}
-}
-
-p{
-	font-size: $base-font-size+8;
-	line-height: 1.7;
-	font-weight: 200;
-}
-
-img{
-	max-height: 100%;
-	max-width: 100%;
-	display: inline;
-}
-
-.shadow{
-	-webkit-box-shadow: 0px 10px 37px -6px rgba(0,0,0,0.27);
-	-moz-box-shadow: 0px 10px 37px -6px rgba(0,0,0,0.27);
-	box-shadow: 0px 10px 37px -6px rgba(0,0,0,0.27);
 }

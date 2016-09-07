@@ -8,6 +8,14 @@
 	padding: 0 relative(20px);
 	box-sizing: border-box;
 }
+.u-full-height{
+	height: 100%;
+}
+.u-full-width{
+	width: 100% !important;
+	max-width: 100% !important;
+	margin: 0;
+}
 .column,
 .columns {
 	width: 100%;
@@ -62,18 +70,30 @@
 		// Set variables in user global config in skeleton sass root instead of editing directly
 		@include grid($tablet-width, false, $base-gutter-width, $base-col-count); // fixed
 	}
+
+	.hide-tablet{
+		display: none !important;
+	}
 }
 
 /*  MOBILE (PORTRAIT)
  * ------------------------------------------------ */
 @media only screen and (max-width: $tablet-width - 1) {
 	@include mobileGrid($mobile-portrait-width, $is-fluid, $base-col-count);
+
+	.hide-mobile{
+		display: none !important;
+	}
 }
 
 /* MOBILE (LANDSCAPE)
  * ------------------------------------------------ */
 @media only screen and (min-width: $mobile-landscape-width + 60) and (max-width: $tablet-width - 1) {
 	@include mobileGrid($mobile-landscape-width, $is-fluid, $base-col-count);
+
+	.hide-mobile{
+		display: none !important;
+	}
 }
 
 /* CLEARING

@@ -1,0 +1,40 @@
+@for $i from 1 through 20 {
+	$spacings: ("margin", "padding");
+	$positions: ("t": "top", "r": "right", "b": "bottom", "l": "left");
+	@each $spacing in $spacings{
+		.#{$spacing}-#{$i*5} {
+			#{$spacing}: #{$i*5};
+		}
+		.#{$spacing}-m-#{$i*5} {
+			#{$spacing}: -#{$i*5};
+		}
+		@each $position, $long in $positions{
+			.#{$spacing}-#{$position}-#{$i*5} {
+				#{$spacing}-#{$long}: #{$i*5};
+			}
+			.#{$spacing}-#{$position}-m-#{$i*5} {
+				#{$spacing}-#{$long}: -#{$i*5};
+			}
+		}
+	}
+}
+
+
+.v-align-center{
+	transform: translateY(500%);
+}
+@media only screen and (max-width: $tablet-width - 1) {
+	.v-align-center{
+		transform: translateY(400%);
+	}
+}
+
+.float-right{
+	position: absolute;
+	right: 20px;
+}
+
+.v-align-bottom{
+	position: absolute;
+	bottom: 10px;
+}
