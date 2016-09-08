@@ -87,7 +87,8 @@ gulp.task('inject-minified', ['minify-scripts', 'sass-compile'], function(){
             gulp.src([
                 config.assets + '/css/minified/*.*',
                 config.assets + '/css/plugins/**/*.css',
-                config.assets + '/minified/*.min.js'
+                config.assets + '/js/minified/nk_vendor_scripts.min.js',
+                config.assets + '/js/minified/nk_scripts.min.js',
                 ], {
                     read: false
                 }
