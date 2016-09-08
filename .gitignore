@@ -1,0 +1,4 @@
+assets/css/minified/*
+assets/js/minified/*
+bower_components/*
+node_modules/*

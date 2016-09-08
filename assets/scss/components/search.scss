@@ -1,0 +1,178 @@
+ul.navigation{
+	display: inline-block;
+	width: 100%;
+	position: fixed;
+	top: 45%;
+	padding-left: 0px;
+	z-index: 100;
+
+	li{
+		display: inline;
+		transition: all 0.2s ease;
+
+		&:hover{
+			transform: scale(1.1);
+			transition: all 0.2s ease;
+		}
+
+		a{
+			color: $black;
+			text-decoration: none;
+			padding: 10px;
+			background: $light-grey;
+			transition: all 0.2s ease;
+		}
+		a:hover{
+			background: darken($light-grey, 2);
+			transition: all 0.2s ease;
+		}
+
+		&.prev{
+			left: -40px;
+			float:left;
+		}
+
+		&.next{
+			float:right;
+			right: 40px;
+		}
+
+		&.disabled{
+			a, a:hover{
+				background: none;
+				color: lighten($dark-grey, 3); 
+				cursor: not-allowed;
+			}
+
+			&:hover{
+				transform: none !important;
+			}
+		}
+	}
+}
+
+ul.search-results{
+	margin: auto;
+	padding: 0px;
+
+	li.search-result{
+		list-style-image: none;
+	    position: relative;
+    	left: 50%;
+
+		@media (min-width: 300px){
+			transform: translateX(-158px); 
+		}
+		@media (min-width: 480px) {
+			transform: translateX(-218px);
+		}
+		@media (min-width: $tablet-width) {
+			transform: translateX(-384px);
+		}
+    	@media (min-width: $grid-max-width) {
+		    transform: translateX(-480px);
+		}
+
+		div.twelve.columns:not(.hide-desktop){
+			text-align: left;
+			opacity: 0;
+			-webkit-animation:fadeIn ease-in 1;  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+		    -moz-animation:fadeIn ease-in 1;
+		    animation:fadeIn ease-in 1;
+
+		    -webkit-animation-fill-mode:forwards;
+		    -moz-animation-fill-mode:forwards;
+		    animation-fill-mode:forwards;
+
+		    -webkit-animation-duration:0.8s;
+		    -moz-animation-duration:0.8s;
+		    animation-duration:0.8s;
+
+
+			img{
+				width: 100%;
+				height: auto;
+			}
+
+			div.columns{
+				margin: 0px;
+			}
+
+			.place{
+				padding: 10px 0px;
+			}
+			.title{
+				text-transform: initial;
+			    color: $black;
+			    font-family: Raleway;
+			    font-weight: 600;
+			    margin-top: 0px;
+			    margin-bottom: 10px;
+			}
+			.date{
+				color: $dark-grey;
+				font-family: Raleway;
+				font-weight: 300;
+				font-size: $base-font-size+3;
+				text-transform: initial;
+			}
+			.claims{
+				padding: 15px 0px;
+				font-size: $base-font-size*2;
+
+				i{
+					color: $dark-grey;
+					margin-right: 10px;
+				}
+
+				span{
+					font-family: Raleway;
+					font-weight: 300;
+					color: $black;
+				}
+			}
+		}
+
+		div.twelve.columns.hide-desktop.bg-image{
+			background-size: cover;
+			background-position: center center;
+			height: 280px;
+			position: relative;
+
+			.claims{
+				color: $white;
+			    text-align: center;
+			    padding: 70px;
+			    font-size: $base-font-size*4;
+			}
+
+			.back{
+				background: rgba(0,0,0,0.5);
+				position: absolute;
+				bottom: 0px;
+				padding: 10px 0px;
+
+				.columns{
+
+					h3.title{
+						padding-left: 10px;
+						color: $white;
+						font-weight: 300;
+
+					}
+					small.date{
+						color: $white;
+						padding-left: 10px;
+					}
+					.place{
+						padding-left: 10px;
+					}
+				}
+			}
+		}
+	}
+}
+
+@-webkit-keyframes fadeIn { from { opacity:0; opacity: 1\9; /* IE9 only */ } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; opacity: 1\9; /* IE9 only */ } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; opacity: 1\9; /* IE9 only */ } to { opacity:1; } }

@@ -14,7 +14,7 @@
 .u-full-width{
 	width: 100% !important;
 	max-width: 100% !important;
-	margin: 0;
+	margin: 0 !important;
 }
 .column,
 .columns {
@@ -35,6 +35,13 @@
 /* For devices larger than 550px */
 @media (min-width: 550px) {
 	@include grid($base-width, $is-fluid, $base-gutter-width, $base-col-count);
+}
+
+/* Desktop only */
+@media (min-width: $grid-max-width){
+	.hide-desktop{
+		display: none !important;
+	}
 }
 
 /* TABLET (PORTRAIT)

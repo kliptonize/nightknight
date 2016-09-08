@@ -1,0 +1,67 @@
+<div class="container u-full-width u-full-height animated" ng-class="{'padding-40': !search.isActive}">
+	<div class="row float-right padding-r-10 margin-t-m-20 hide-mobile" ng-show="!search.isActive">
+		<div class="one columns">
+			<ul class="text-left">
+				<li>Session:</li>
+				<li>UserID:</li>
+				<li>Duration:</li>
+			</ul>
+		</div>
+		<div class="two columns">
+			<ul class="text-right">
+				<li ng-repeat="fakeVar in fakeSessionVariables">{{fakeVar}}</li>
+			</ul>
+		</div>
+	</div>
+	<div class="row animated" ng-class="{'v-align-center': !search.isActive, 'menu': search.isActive}">
+		<div class="twelve columns u-full-width">
+			<searchbox animation-delay="2000"></searchbox>
+		</div>
+	</div>
+	<div class="row" ng-show="search.isActive">
+		<ul class="navigation hide-mobile" ng-show="search.results.length > 0">
+			<li class="prev" ng-class="{'disabled': search.results[0].active}"><a href="#" ng-click="switchSearchResult('prev')"><i class="fa fa-angle-left"></i> Wait a second..</a></li>
+			<li class="next" ng-class="{'disabled': search.results[search.results.length-1].active}"><a href="#" ng-click="switchSearchResult('next')">Nope, not this one <i class="fa fa-angle-right"></i></a></li>
+		</ul>
+		<ul class="search-results">
+			<li class="search-result" ng-repeat="result in search.results">
+				<div class="twelve columns padding-b-40 margin-50 hide-mobile" ng-show="result.active">
+					<img ng-src="{{result.img}}">
+					<p class="text-dark-grey text-right u-full-width place"><i class="fa fa-map-marker"></i> <span>{{result.place}}</span></p>
+					<div class="row">
+						<div class="ten columns">
+							<h3 class="title">{{result.title}}</h3>
+							<small class="date">{{result.date}}</small>
+						</div>
+						<div class="two columns text-right claims">
+							<i class="fa fa-user-secret"></i>
+							<span>{{result.claims}}</span>
+						</div>
+					</div>
+				</div>
+				<div class="twelve columns padding-b-20 margin-20 hide-tablet hide-desktop bg-image" style="background-image: url('{{result.img}}')">
+					<div class="row">
+						<div class="twelve columns claims">
+							<i class="fa fa-user-secret"></i>
+							<span>{{result.claims}}</span>
+						</div>
+					</div>
+					<div class="back">
+						<div class="row">
+							<div class="twelve columns">
+								<h3 class="title">{{result.title}}</h3>
+								<small class="date">{{result.date}}</small>
+							</div>
+							<div class="twelve columns">
+								<p class="text-white u-full-width place">
+									<i class="fa fa-map-marker"></i> 
+									<span>{{result.place}}</span>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>

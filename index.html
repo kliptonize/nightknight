@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<title>Nightknight</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0">
+
+		<link rel="shortcut icon" href="assets/images/logo-favicon-light.png">
+		<!-- inject:css -->
+		<link rel="stylesheet" href="assets/css/minified/nightknight_stylesheet.css">
+		<link rel="stylesheet" href="assets/css/plugins/font-awesome.min.css">
+		<!-- endinject -->
+
+		<base href="/">
+	</head>
+	<body ng-app="nk">
+		<section ui-view="body">
+			<!-- Body template -->
+		</section>
+		<footer ui-view="footer">
+			<!-- Footer template -->
+		</footer>
+	</body>
+	<!-- inject:js -->
+	<script src="bower_components/jquery/dist/jquery.js"></script>
+	<script src="bower_components/angular/angular.js"></script>
+	<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+	<script src="app/app.module.js"></script>
+	<script src="app/app.settings.js"></script>
+	<script src="app/components/landing/landing.controller.js"></script>
+	<script src="app/directives/searchbox/searchbox.directive.js"></script>
+	<script src="app/components/core/footer/footer.controller.js"></script>
+	<!-- endinject -->
+</html>

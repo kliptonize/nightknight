@@ -1,0 +1,11 @@
+<div class="input-group">
+	<img src="../assets/images/logo-dark.png" />
+	<label for="searchForPlace" ng-bind-html="helpText">
+	</label>
+	<input 
+		type="text" 
+		placeholder="{{placeholder}}"
+		ng-keyup="$event.keyCode == 13 && searchLocation()"
+		ng-model="searchQuery"
+		value="Antwerp" />
+</label>

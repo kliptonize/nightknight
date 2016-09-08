@@ -1,5 +1,6 @@
 var gulp = require('gulp'),
     minifyCss = require('gulp-minify-css'),
+    uglify = require('gulp-uglifyjs'),
     uglifycss = require('gulp-uglifycss'),
     concat = require('gulp-concat'),
     version = require('gulp-version-number'),
@@ -8,15 +9,17 @@ var gulp = require('gulp'),
     bump = require('gulp-bump'),
     header = require('gulp-header'),
     pkg = require('./package.json'),
+    mainBowerFiles = require('main-bower-files'),
     stripDebug = require('gulp-strip-debug'),
+    gulpFilter = require('gulp-filter'),
     onError = function onError(err) {
         console.log(err);
     };
 var config = {
     root: '.',
+    app: 'app',
     assets: 'assets',
-    bower: 'bower_components',
-    pages: 'pages'
+    bower: 'bower_components'
 };
 var banner = ['/**',
   ' * <%= pkg.name %> - <%= pkg.description %>',
@@ -24,6 +27,8 @@ var banner = ['/**',
   ' * @compile-time: ' + new Date().toString(),
   ' */',
   ''].join('\n');
+
+var scriptsFilter = gulpFilter(["**/*.js"]);
 
 gulp.task("sass-compile", function(){
     gulp.src([
@@ -47,17 +52,42 @@ gulp.task("sass-compile", function(){
     .pipe(gulp.dest(config.root)); 
 });
 
+gulp.task("minify-scripts", function(){
+    // Globbing patterns
+    var patterns = [
+        "!" + config.app + '/**/*.template.js',
+        config.app + '/app.module.js',
+        config.app + '/app.settings.js', 
+        config.app + '/**/*.js'
+    ];
 
-gulp.task('inject-minified', ['sass-compile'], function(){
+    //JS - minify own js
+    gulp.src(patterns)
+        .pipe(uglify())
+        .pipe(concat({ path: 'nk_scripts.min.js'}))
+        .pipe(header(banner, {pkg: pkg}))
+        .pipe(gulp.dest(config.assets + '/js/minified'));
+
+    //JS - minify vendor js
+    return gulp.src(mainBowerFiles())
+        .pipe(scriptsFilter)
+        .pipe(concat({ path: 'nk_vendor_scripts.min.js'}))
+        .pipe(uglify())
+        .pipe(stripDebug())
+        .pipe(header(banner, {pkg: pkg}))
+        .pipe(gulp.dest(config.assets + '/js/minified'));
+});
+
+
+gulp.task('inject-minified', ['minify-scripts', 'sass-compile'], function(){
     //Inject in header and footer
-    var stream = gulp.src(config.pages + '/*.html')
+    var stream = gulp.src(config.root + '/*.html')
     .pipe(
         inject(
             gulp.src([
                 config.assets + '/css/minified/*.*',
                 config.assets + '/css/plugins/**/*.css',
-                config.bower + '/jquery/dist/jquery.min.js',
-                config.assets + '/js/*.js'
+                config.assets + '/minified/*.min.js'
                 ], {
                     read: false
                 }
@@ -67,7 +97,36 @@ gulp.task('inject-minified', ['sass-compile'], function(){
             }
         )
     )
-    .pipe(gulp.dest(config.pages));
+    .pipe(gulp.dest(config.root));
+
+    //Callback
+    return stream;
+});
+
+gulp.task('inject-raw', ['sass-compile'], function(){
+    //Inject in header and footer
+    var stream = gulp.src(config.root + '/*.html')
+    .pipe(
+        inject(
+            gulp.src([
+                config.assets + '/css/minified/*.*',
+                config.assets + '/css/plugins/**/*.css',
+                config.bower + '/jquery/dist/jquery.js',
+                config.bower + '/angular/angular.js',
+                config.bower + '/angular-ui-router/release/angular-ui-router.js',
+                "!" + config.app + "/**/*.template.js",
+                config.app + '/*.js',
+                config.app + '/**/*.js'
+                ], {
+                    read: false
+                }
+            ), 
+            {
+                relative: true
+            }
+        )
+    )
+    .pipe(gulp.dest(config.root));
 
     //Callback
     return stream;
@@ -76,6 +135,10 @@ gulp.task('inject-minified', ['sass-compile'], function(){
 gulp.task('watch', function(){
     gulp.watch([
         config.assets + '/scss/**/*.scss',
-    ], ['sass-compile'/*, 'inject-minified'*/]);
+    ], ['sass-compile', 'inject-minified']);
 });
+
+gulp.task('dev',['sass-compile', 'minify-scripts', 'inject-raw']);
+gulp.task('prod',['sass-compile', 'minify-scripts', 'inject-minified']);
+
 
